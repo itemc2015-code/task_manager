@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/',methods=['POST','GET'])
 def home():
     if request.method == "POST":
-        task_name = request.form['content']
+        task_name = request.form.get('content')
         taskmngr_db.add_list(task_name)
         return redirect(url_for('home'))
     else:
@@ -21,7 +21,7 @@ def del_list(no):
 @app.route('/update/<int:no>', methods=['POST','GET'])
 def up_list(no):
     if request.method == "POST":
-        task_update = request.form['content']
+        task_update = request.form.get('content')
         taskmngr_db.update_list(task_update,no)
         return redirect(url_for('home'))
     else:
