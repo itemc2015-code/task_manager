@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+<center>
+<h2 style="color:white">UPDATE LIST</h2>
+<br>
+
+<form action="/update/{{task['no']}}" method="POST">
+    <input type="text" name="content" id="content" value="{{task['tasks']}}">
+    <input type="submit" value="SAVE UPDATE">
+</form>
+</center>
+
+{% endblock %}

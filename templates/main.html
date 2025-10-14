@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div align="center">
+<h2 style="color:white">TASK LIST</h2>
+{% if task_list %}
+<table  style="background-color:black;color:black" width="500">
+    <tr style="background-color:white"><th><h3>Task</h3></th>
+        <th><h3>Added</h3></th>
+        <th><h3>Actions</h3></th>
+    </tr>
+    {% for x in task_list %}
+    <tr style="background-color:white">
+        <td> {{x["tasks"]}} </td><td align="center"> {{x["date_time"]}} </td>
+        <td align="center"><a href="/delete/{{x['no']}}">Delete</a><br><a href="/update/{{x['no']}}">Update</a></td>
+    </tr>
+    {% endfor %}
+</table>
+    {% else %}<h3 style="color:white">------------ Task is empty ------------</h3>
+{% endif %}
+</div>
+<br>
+<center>
+<form action="/" method="POST">
+    <input type="text" name="content" id="content" placeholder="enter your task here">
+    <input type="submit" value="ADD TASK">
+</form>
+</center>
+
+{% endblock %}
