@@ -16,12 +16,12 @@ def home():
         task_list = taskmngr_db.show_list()
         return render_template('main.html',task_list=task_list)
 
-@app.route('/<sign>')
-def signup(sign):
+@app.route('/sign')
+def signup():
     return render_template('signup.html')
 
-@app.route('/<log>')
-def login(log):
+@app.route('/log')
+def login():
     return render_template('login.html')
 
 if __name__ == "__main__":
