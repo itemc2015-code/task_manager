@@ -6,3 +6,5 @@ __pycache__/
 for_flask.py
 .env
 db_connect.py
+for_html.html
+sakamoto.png
