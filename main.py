@@ -16,20 +16,13 @@ def home():
         task_list = taskmngr_db.show_list()
         return render_template('main.html',task_list=task_list)
 
-# @app.route('/delete/<int:no>')
-# def del_list(no):
-#     taskmngr_db.del_list(no)
-#     return redirect(url_for('home'))
-#
-# @app.route('/update/<int:no>', methods=['POST','GET'])
-# def up_list(no):
-#     if request.method == "POST":
-#         task_update = request.form.get('content')
-#         taskmngr_db.update_list(task_update,no)
-#         return redirect(url_for('home'))
-#     else:
-#         task = taskmngr_db.get_task(no)
-#         return render_template('update.html',task=task)
+@app.route('/<sign>')
+def signup(sign):
+    return render_template('signup.html')
+
+@app.route('/<log>')
+def login(log):
+    return render_template('login.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
