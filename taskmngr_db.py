@@ -38,3 +38,12 @@ class TaskDB:
         self.db_cursor.execute(c_value,(task_update,no))
         self.db.commit()
 
+class UserDB(TaskDB):
+
+    def signing_up(self,email,passwd):
+        c_value = 'insert into auth(username,pwd) values(%s,%s) '
+        self.db_cursor.execute(c_value,(email,passwd))
+        self.db.commit()
+
+
+
