@@ -45,5 +45,10 @@ class UserDB(TaskDB):
         self.db_cursor.execute(c_value,(email,passwd))
         self.db.commit()
 
+    def login_in(self,login_email,login_password):
+        c_value =  'select * from auth where username = %s and pwd = %s'
+        self.db_cursor.execute(c_value,(login_email,login_password))
+        return self.db_cursor.fetchone()
+
 
 

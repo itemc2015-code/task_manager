@@ -14,6 +14,13 @@ def signup():
     else:
         return render_template('signup.html')
 
-@auth.route('/')
+@auth.route('/',methods=['POST','GET'])
 def login():
-    return render_template('login.html')
+    t_db = current_app.config['userdb']
+    if request.method == "POST":
+        email = request.form['email']
+        password = request.form['password']
+        t_db.login_in(email,password)
+        return redirect(url_for('home'))
+    else:
+        return render_template('login.html')
