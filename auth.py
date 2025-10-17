@@ -10,7 +10,7 @@ def signup():
         passwd = request.form['password']
         t_db.signing_up(email,passwd)
         flash('Registration successful','successful')
-        return redirect(url_for('signup'))
+        return redirect(url_for('auth.signup'))
     else:
         return render_template('signup.html')
 
