@@ -3,14 +3,21 @@
 {% block body %}
 
 <center style="color:white">
+
    <h1>Log in</h1>
 <form action="" method="POST">
-    <input type="email" name="content" value="" placeholder=" Email" ><br>
+    <input type="email" name="email" value="" placeholder=" Email"
+    style="width:200px; padding:10px; border-radius:500px;">
+    <br>
     Email<br>
-    <input type="password" name="content" value="" placeholder=" Password"><br>
+    <input type="password" name="password" value="" placeholder=" Password"
+    style="width:200px; padding:10px; border-radius:500px;"><br>
     Password
+    <br><input type="submit" name="submit" value="Login"
+        style="width:150px; padding:10px; font-size:20px; border-radius:500px">
 </form><br>
     <a href="/sign"><h3 style="color:white">Create Account</h3></a>
+
 </center>
 
 {% endblock %}
