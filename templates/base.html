@@ -6,8 +6,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+{% block head %}{% endblock %}
 </head>
 <body style="background-color:#3B444B">
+
+{% with msgs = get_flashed_messages(with_categories=true) %}
+{% if msgs %}
+{% for category, msg in msgs %}
+    {% if category == "success" %}
+        <center>
+        <div style="background-color:green; color:white; width:300px;"><h2>{{msg}}</h2></div>
+        </center>
+    {% elif category == "error" %}
+        <center>
+        <div style="background-color:red; color:white; width:300px;"><h2>{{msg}}</h2></div>
+        </center>
+    {% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
 {% block body %}{% endblock %}
 </body>
 </html>

@@ -1,30 +1,10 @@
 {% extends "base.html" %}
 
+{% block head %}<meta http-equiv="refresh" content="30">{% endblock %}
+
 {% block body %}
 
 <center>
-
-    {% with msgs = get_flashed_messages(with_categories=true) %}
-    {% if msgs %}
-    {% for category, msg in msgs %}
-    <div class="flash {{category}}"> {{msg}} </div>
-    <style>
-    .flash {
-      padding: 10px;
-      margin: 10px auto;
-      width: 50%;
-      border-radius: 5px;
-      text-align: center;
-      font-weight: bold;
-    }
-    .flash.success { background-color: #28a745; color: white; }
-    .flash.error { background-color: #dc3545; color: white; }
-    </style>
-
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
-
 <table style="background-color:#3B444B;color:white">
     <tr><th><h1 align="left">Sign Up</h1></th></tr>
     <tr><td><h3><i>Please fill in this form to create an account!</i></h3></td></tr>

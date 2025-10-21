@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
+{% block head %}<meta http-equiv="refresh" content="30">{% endblock %}
+
 {% block body %}
+
+<a href="/" style="color:white"><h3>Logout</h3></a>
+
 <div align="center">
 <h2 style="color:white">TASK LIST</h2>
 {% if task_list %}
