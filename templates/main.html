@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<a href="/" style="color:white"><h3>Logout</h3></a>
+<a href="/logout" style="color:white"><h3>Logout</h3></a>
 
 <div align="center">
 <h2 style="color:white">TASK LIST</h2>
@@ -26,7 +26,7 @@
 </div>
 <br>
 <center>
-<form action="/" method="POST">
+<form action="/task" method="POST">
     <input type="text" name="content" id="content" placeholder="enter your task here">
     <input type="submit" value="ADD TASK">
 </form>

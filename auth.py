@@ -43,3 +43,9 @@ def login():
             return render_template('login.html')
     else:
         return render_template('login.html')
+
+@auth.route('/logout')
+def logout():
+    session.clear()
+    flash('You have been logged out','success')
+    return redirect(url_for('auth.login'))

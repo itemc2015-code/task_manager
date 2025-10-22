@@ -14,18 +14,19 @@ class TaskDB:
         )
         #self.db_cursor = self.db.cursor(dictionary=True)
 
-    def show_list(self):
+    def show_list(self,user_id):
         self.db.ping(reconnect=True)
         cursor = self.db.cursor(dictionary=True,buffered=True)
-        cursor.execute("select * from tasks order by date_time desc")
+        c_value = "select * from tasks where auth_id = %s order by date_time desc"
+        cursor.execute(c_value,(user_id,))
         result = cursor.fetchall()
         cursor.close()
         return result
 
-    def add_list(self,task_name):
+    def add_list(self,task_name,user_id):
         cursor = self.db.cursor()
-        c_value = ('insert into tasks(tasks) values(%s)')
-        cursor.execute(c_value,(task_name,))
+        c_value = ('insert into tasks(tasks,auth_id) values(%s,%s)')
+        cursor.execute(c_value,(task_name,user_id))
         self.db.commit()
         cursor.close()
 

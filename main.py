@@ -16,14 +16,18 @@ print(app.url_map)
 @app.route('/task',methods=['POST','GET'])
 def task():
     t_db = app.config['taskdb']
-    session.get('user_id')
-    if request.method == "POST":
-        task_name = request.form.get('content')
-        t_db.add_list(task_name)
-        return redirect(url_for('task'))
+    user_id = session.get('user_id')
+    if user_id:
+        if request.method == "POST":
+            task_name = request.form.get('content')
+            t_db.add_list(task_name,user_id)
+            return redirect(url_for('task'))
+        else:
+            task_list = t_db.show_list(user_id)
+            return render_template('main.html',task_list=task_list)
     else:
-        task_list = t_db.show_list()
-        return render_template('main.html',task_list=task_list)
+        flash('Invalid login, Login first','error')
+        return redirect(url_for('auth.login'))
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
