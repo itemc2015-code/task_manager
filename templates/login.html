@@ -5,7 +5,7 @@
 <center style="color:white">
 
    <h1>Log in</h1>
-<form action="/" method="POST">
+<form action="{{ url_for('auth.login') }}" method="POST">
     <input type="email" name="email" value="" required placeholder=" Email"
     style="width:200px; padding:10px; border-radius:500px;">
     <br>

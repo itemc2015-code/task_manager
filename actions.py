@@ -7,6 +7,7 @@ action = Blueprint('action',__name__)
 def del_list(no):
     t_db = current_app.config['taskdb']
     t_db.del_list(no)
+    flash('Deleted successfully','success')
     return redirect(url_for('task'))
 
 @action.route('/update/<int:no>', methods=['POST','GET'])

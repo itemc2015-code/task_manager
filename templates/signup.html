@@ -8,7 +8,7 @@
 <table style="background-color:#3B444B;color:white">
     <tr><th><h1 align="left">Sign Up</h1></th></tr>
     <tr><td><h3><i>Please fill in this form to create an account!</i></h3></td></tr>
-<form action="/sign" method="POST">
+<form action="{{ url_for('auth.signup') }}" method="POST">
     <tr><td>
     <input type="email" name="email" value="" required placeholder=" Email"
     style="width:200px; padding:10px; border-radius:500px;">
