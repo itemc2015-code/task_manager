@@ -1,4 +1,4 @@
-from flask import Blueprint,url_for,render_template,request,redirect,current_app
+from flask import Blueprint,url_for,render_template,request,redirect,current_app,flash
 import taskmngr_db
 
 action = Blueprint('action',__name__)
@@ -15,6 +15,7 @@ def up_list(no):
     if request.method == "POST":
         task_update = request.form.get('content')
         t_db.update_list(task_update,no)
+        flash('Update successfully','success')
         return redirect(url_for('task'))
     else:
         task = t_db.get_task(no)
