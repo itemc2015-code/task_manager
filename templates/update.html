@@ -8,7 +8,7 @@
 <br>
 
 <form action="{{ url_for('action.up_list',no=task['no']) }}" method="POST">
-    <input type="text" name="content" id="content" value="{{task['tasks']}}">
+    <input type="text" name="content" id="content" value="{{task['tasks']}}" autofocus>
     <input type="submit" value="SAVE UPDATE">
 </form>
 </center>

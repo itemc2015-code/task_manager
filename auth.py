@@ -46,6 +46,11 @@ def login():
 
 @auth.route('/logout')
 def logout():
-    session.clear()
-    flash('You have been logged out','success')
-    return redirect(url_for('auth.login'))
+    user_id = session.get('user_id')
+    if user_id:
+        session.clear()
+        flash('You have been logged out','success')
+        return redirect(url_for('auth.login'))
+    else:
+        flash('Invalid','error')
+        return redirect(url_for('auth.login'))

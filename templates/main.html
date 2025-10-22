@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<a href="/logout" style="color:white"><h3>Logout</h3></a>
+<a href="{{ url_for('auth.logout') }}" style="color:white"><h3>Logout</h3></a>
 
 <div align="center">
 <h2 style="color:white">TASK LIST</h2>
@@ -27,7 +27,7 @@
 <br>
 <center>
 <form action="{{ url_for('task') }}" method="POST">
-    <input type="text" name="content" id="content" required placeholder="enter your task here">
+    <input type="text" name="content" id="content" required placeholder="enter your task here" autofocus>
     <input type="submit" value="ADD TASK">
 </form>
 </center>
